@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "@bu0nq/scss-function-rem" as *;
+@use "@m2collective/scss-function-rem";
 
 $breakpoint-xxs: 480px !default;
 $breakpoint-xs: 640px !default;
@@ -19,18 +19,18 @@ $breakpoints: (
   xxl: $breakpoint-xxl,
 );
 
-$breakpoint-baseline: 16 !default;
+$rem-default: 16 !default;
 
 @mixin media-breakpoint-min(
   $breakpoint-min,
-  $breakpoint-baseline: $breakpoint-baseline
+  $rem-default: $rem-default
 ) {
   $value: map.get($breakpoints, $breakpoint-min);
 
   @if ($value == 0) {
     @content;
   } @else {
-    @media (min-width: rem($value, $breakpoint-baseline)) {
+    @media (min-width: scss-function-rem.rem($value, $rem-default)) {
       @content;
     }
   }
@@ -38,7 +38,7 @@ $breakpoint-baseline: 16 !default;
 
 @mixin media-breakpoint-max(
   $breakpoint-max,
-  $breakpoint-baseline: $breakpoint-baseline
+  $rem-default: $rem-default
 ) {
   $value: map.get($breakpoints, $breakpoint-max) - 1px;
 
@@ -46,7 +46,7 @@ $breakpoint-baseline: 16 !default;
     @content;
   }
   @else {
-    @media (max-width: rem($value, $breakpoint-baseline)) {
+    @media (max-width: scss-function-rem.rem($value, $rem-default)) {
       @content;
     }
   }
@@ -55,17 +55,17 @@ $breakpoint-baseline: 16 !default;
 @mixin media-breakpoint-min-max(
   $breakpoint-min,
   $breakpoint-max,
-  $breakpoint-baseline: $breakpoint-baseline
+  $rem-default: $rem-default
 ) {
   $value-min: map.get($breakpoints, $breakpoint-min);
   $value-max: map.get($breakpoints, $breakpoint-max) - 1px;
 
   @if ($value-min == 0) {
-    @media (max-width: rem($value-max, $breakpoint-baseline)) {
+    @media (max-width: scss-function-rem.rem($value-max, $rem-default)) {
       @content;
     }
   } @else {
-    @media (min-width: rem($value-min, $breakpoint-baseline)) and (max-width: rem($value-max, $breakpoint-baseline)) {
+    @media (min-width: scss-function-rem.rem($value-min, $rem-default)) and (max-width: scss-function-rem.rem($value-max, $rem-default)) {
       @content;
     }
   }
