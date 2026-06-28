@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "@m2collective/scss-function-rem";
+@use "index";
 
 $breakpoint-xxs: 480px !default;
 $breakpoint-xs: 640px !default;
