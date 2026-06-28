@@ -2,10 +2,7 @@
 
 A package for integrating a mixin for creating media queries.
 
-![npm](https://img.shields.io/npm/v/@bu0nq/scss-mixin-media-breakpoints?style=for-the-badge)
-![npm](https://img.shields.io/npm/dt/@bu0nq/scss-mixin-media-breakpoints?style=for-the-badge)
-
-Documentation: [EN](README.md) | [RU](README.RU.md)
+![npm](https://img.shields.io/npm/v/@m2collective/scss-mixin-media-breakpoints?style=for-the-badge)
 
 ___
 
@@ -14,7 +11,7 @@ ___
 You can install the package automatically using NPM:
 
 ```
-npm i @bu0nq/scss-mixin-media-breakpoints
+npm i @m2collective/scss-mixin-media-breakpoints
 ```
 
 ## Usage
@@ -22,7 +19,7 @@ npm i @bu0nq/scss-mixin-media-breakpoints
 To use the package, import it into your project:
 
 ```scss
-@use "@bu0nq/scss-mixin-media-breakpoints" as *;
+@use "@m2collective/scss-mixin-media-breakpoints" as *;
 
 .demo {
     @include media-breakpoint-min(xl) {
@@ -50,7 +47,7 @@ The package contains the following mixins to use:
 You can change the namespace during mixin import and use the mixin with a different namespace:
 
 ```scss
-@use "@bu0nq/scss-mixin-media-breakpoints" as mixin;
+@use "@m2collective/scss-mixin-media-breakpoints" as mixin;
 
 .demo {
     @include mixin.media-breakpoint-min(xl) {
@@ -64,7 +61,7 @@ You can change the namespace during mixin import and use the mixin with a differ
 You can redefine the default values for the specified variables when importing the mixin:
 
 ```scss
-@use "@bu0nq/scss-mixin-media-breakpoints" as * with (
+@use "@m2collective/scss-mixin-media-breakpoints" as * with (
     $breakpoint-xxs: 480px,
     $breakpoint-xs: 640px,
     $breakpoint-sm: 768px,
@@ -72,10 +69,14 @@ You can redefine the default values for the specified variables when importing t
     $breakpoint-lg: 1280px,
     $breakpoint-xl: 1440px,
     $breakpoint-xxl: 1536px,
-    $breakpoint-baseline: 16,
+    $rem-default: 16,
 );
 ```
 
 ## Dependencies
 
-* [@bu0nq/scss-function-rem](https://github.com/bu0nq/scss-function-rem)
+* [@m2collective/scss-function-rem](https://github.com/m2collective/scss-function-rem)
+
+## License
+
+The MIT License (MIT). Please see the [License file](LICENSE.txt) for more information.
