@@ -19,9 +19,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@m2collective/scss-function-rem": "^0.1.0"
-  },
   "license": "MIT",
   "author": {
     "name": "bu0nq",
