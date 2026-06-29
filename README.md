@@ -22,9 +22,15 @@ To use the package, import it into your project:
 @use "@m2collective/scss-mixin-media-breakpoints" as *;
 
 .demo {
-    @include media-breakpoint-min(xl) {
-        width: 100%;
+    @include media-breakpoint-min(xxs) {
+        background-color: #000
     };
+}
+
+@media (width>=30rem){
+    .demo {
+        background-color: #000
+    }
 }
 ```
 
@@ -32,11 +38,11 @@ To use the package, import it into your project:
 
 The package contains the following mixins to use:
 
-| Name                     | Variables                                           |
-|--------------------------|-----------------------------------------------------|
-| media-breakpoint-min     | breakpoint-min, breakpoint-baseline                 |
-| media-breakpoint-max     | breakpoint-max, breakpoint-baseline                 |
-| media-breakpoint-min-max | breakpoint-min, breakpoint-max, breakpoint-baseline |
+| Name                     | Variables                                   |
+|--------------------------|---------------------------------------------|
+| media-breakpoint-min     | breakpoint-min, rem-default                 |
+| media-breakpoint-max     | breakpoint-max, rem-default                 |
+| media-breakpoint-min-max | breakpoint-min, breakpoint-max, rem-default |
 
 `brekpoint-min`, `breakpoint-max`: it can take the following values: xxs, xs, sm, md, lg, xl, xxl.
 
@@ -48,12 +54,6 @@ You can change the namespace during mixin import and use the mixin with a differ
 
 ```scss
 @use "@m2collective/scss-mixin-media-breakpoints" as mixin;
-
-.demo {
-    @include mixin.media-breakpoint-min(xl) {
-        width: 100%;
-    };
-}
 ```
 
 ## Changing the variables
