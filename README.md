@@ -24,12 +24,22 @@ To use the package, import it into your project:
 @use "@m2collective/scss-mixin-media-breakpoints" as *;
 
 .demo {
-    @include media-breakpoint-min(xxs) {
+    @include media-breakpoint-min(480px) {
         background-color: #000
     };
 }
 
-@media (width>=30rem){
+or
+
+.demo {
+    @include media-breakpoint-min(480px) {
+        background-color: #000
+    };
+}
+
+// Return
+
+@media (width >= 480px){
     .demo {
         background-color: #000
     }
@@ -42,14 +52,24 @@ To use the package, import it into your project:
 @use "@m2collective/scss-mixin-media-breakpoints" as *;
 
 .demo {
-    @include media-breakpoint-min(xxs) {
+    @include media-breakpoint-max(xxs) {
         background-color: #000
     };
 }
 
-@media (width>=30rem){
-    .demo {
+or
+
+.demo {
+    @include media-breakpoint-max(480px) {
         background-color: #000
+    };
+}
+
+// Return
+
+@media (width <= 479px) {
+    .demo {
+        background-color: #000;
     }
 }
 ```
@@ -60,12 +80,22 @@ To use the package, import it into your project:
 @use "@m2collective/scss-mixin-media-breakpoints" as *;
 
 .demo {
-    @include media-breakpoint-min(xxs) {
+    @include media-breakpoint-min(xxs, xs) {
         background-color: #000
     };
 }
 
-@media (width>=30rem){
+or
+
+.demo {
+    @include media-breakpoint-min(480px, 640px) {
+        background-color: #000
+    };
+}
+
+// Return
+
+@media (width >= 480px) and (width <= 639px) {
     .demo {
         background-color: #000
     }
