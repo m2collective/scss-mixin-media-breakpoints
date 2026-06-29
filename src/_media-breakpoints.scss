@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "index";
+@use "@m2collective/scss-function-rem";
 
 $breakpoint-xxs: 480px !default;
 $breakpoint-xs: 640px !default;
@@ -25,12 +25,14 @@ $rem-default: 16 !default;
   $breakpoint-min,
   $rem-default: $rem-default
 ) {
-  $value: map.get($breakpoints, $breakpoint-min);
+  @if(map.has-key($breakpoints, $breakpoint-min)) {
+    $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
 
-  @if ($value == 0) {
+  @if ($breakpoint-min == 0) {
     @content;
   } @else {
-    @media (min-width: scss-function-rem.rem($value, $rem-default)) {
+    @media (min-width: scss-function-rem.rem($breakpoint-min, $rem-default)) {
       @content;
     }
   }
@@ -40,13 +42,15 @@ $rem-default: 16 !default;
   $breakpoint-max,
   $rem-default: $rem-default
 ) {
-  $value: map.get($breakpoints, $breakpoint-max) - 1px;
+  @if(map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  }
 
-  @if ($value == 0) {
+  @if ($breakpoint-max == 0) {
     @content;
   }
   @else {
-    @media (max-width: scss-function-rem.rem($value, $rem-default)) {
+    @media (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
       @content;
     }
   }
@@ -57,15 +61,20 @@ $rem-default: 16 !default;
   $breakpoint-max,
   $rem-default: $rem-default
 ) {
-  $value-min: map.get($breakpoints, $breakpoint-min);
-  $value-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  @if(map.has-key($breakpoints, $breakpoint-min)) {
+    $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
 
-  @if ($value-min == 0) {
-    @media (max-width: scss-function-rem.rem($value-max, $rem-default)) {
+  @if(map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  }
+
+  @if ($breakpoint-min == 0) {
+    @media (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
       @content;
     }
   } @else {
-    @media (min-width: scss-function-rem.rem($value-min, $rem-default)) and (max-width: scss-function-rem.rem($value-max, $rem-default)) {
+    @media (min-width: scss-function-rem.rem($breakpoint-min, $rem-default)) and (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
       @content;
     }
   }
