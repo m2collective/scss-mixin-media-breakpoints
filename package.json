@@ -1,14 +1,13 @@
 {
-  "name": "@bu0nq/scss-mixin-media-breakpoints",
-  "version": "1.0.0",
+  "name": "@m2collective/scss-mixin-media-breakpoints",
+  "version": "0.1.0",
   "description": "A package for integrating a mixin for creating media queries",
   "keywords": [
+    "m2collective",
     "scss",
-    "style",
-    "frontend",
     "mixin",
-    "mixins",
-    "media-breakpoints"
+    "media-breakpoints",
+    "style"
   ],
   "main": "index.scss",
   "exports": {
@@ -17,25 +16,22 @@
       "default": "./index.scss"
     }
   },
-  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "@bu0nq/scss-function-rem": "^2.0.0"
-  },
+  "license": "MIT",
   "author": {
     "name": "bu0nq",
     "email": "hello@bu0nq.ru"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bu0nq/scss-mixin-media-breakpoints.git"
+    "url": "git+https://github.com/m2collective/scss-mixin-media-breakpoints.git"
   },
   "bugs": {
-    "url": "https://github.com/bu0nq/scss-mixin-media-breakpoints/issues"
+    "url": "https://github.com/m2collective/scss-mixin-media-breakpoints/issues"
   },
-  "homepage": "https://github.com/bu0nq/scss-mixin-media-breakpoints#readme",
+  "homepage": "https://github.com/m2collective/scss-mixin-media-breakpoints#readme",
   "publishConfig": {
     "access": "public"
   }

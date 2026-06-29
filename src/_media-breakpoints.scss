@@ -1,0 +1,75 @@
+@use "sass:map";
+
+$breakpoint-xxs: 480px !default;
+$breakpoint-xs: 640px !default;
+$breakpoint-sm: 768px !default;
+$breakpoint-md: 1024px !default;
+$breakpoint-lg: 1280px !default;
+$breakpoint-xl: 1440px !default;
+$breakpoint-xxl: 1536px !default;
+
+$breakpoints: (
+  xxs: $breakpoint-xxs,
+  xs: $breakpoint-xs,
+  sm: $breakpoint-sm,
+  md: $breakpoint-md,
+  lg: $breakpoint-lg,
+  xl: $breakpoint-xl,
+  xxl: $breakpoint-xxl,
+);
+
+@mixin media-breakpoint-min(
+  $breakpoint-min
+) {
+  @if(map.has-key($breakpoints, $breakpoint-min)) {
+    $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
+
+  @if ($breakpoint-min == 0) {
+    @content;
+  } @else {
+    @media (min-width: $breakpoint-min) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-max(
+  $breakpoint-max
+) {
+  @if(map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  }
+
+  @if ($breakpoint-max == 0) {
+    @content;
+  }
+  @else {
+    @media (max-width: $breakpoint-max) {
+      @content;
+    }
+  }
+}
+
+@mixin media-breakpoint-min-max(
+  $breakpoint-min,
+  $breakpoint-max
+) {
+  @if(map.has-key($breakpoints, $breakpoint-min)) {
+    $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
+
+  @if(map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  }
+
+  @if ($breakpoint-min == 0) {
+    @media (max-width: $breakpoint-max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+      @content;
+    }
+  }
+}
