@@ -19,11 +19,8 @@ $breakpoints: (
   xxl: $breakpoint-xxl,
 );
 
-$rem-default: 16 !default;
-
 @mixin media-breakpoint-min(
-  $breakpoint-min,
-  $rem-default: $rem-default
+  $breakpoint-min
 ) {
   @if(map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
@@ -32,15 +29,14 @@ $rem-default: 16 !default;
   @if ($breakpoint-min == 0) {
     @content;
   } @else {
-    @media (min-width: scss-function-rem.rem($breakpoint-min, $rem-default)) {
+    @media (min-width: $breakpoint-min) {
       @content;
     }
   }
 }
 
 @mixin media-breakpoint-max(
-  $breakpoint-max,
-  $rem-default: $rem-default
+  $breakpoint-max
 ) {
   @if(map.has-key($breakpoints, $breakpoint-max)) {
     $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
@@ -50,7 +46,7 @@ $rem-default: 16 !default;
     @content;
   }
   @else {
-    @media (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
+    @media (max-width: $breakpoint-max) {
       @content;
     }
   }
@@ -58,8 +54,7 @@ $rem-default: 16 !default;
 
 @mixin media-breakpoint-min-max(
   $breakpoint-min,
-  $breakpoint-max,
-  $rem-default: $rem-default
+  $breakpoint-max
 ) {
   @if(map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
@@ -70,11 +65,11 @@ $rem-default: 16 !default;
   }
 
   @if ($breakpoint-min == 0) {
-    @media (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
+    @media (max-width: $breakpoint-max) {
       @content;
     }
   } @else {
-    @media (min-width: scss-function-rem.rem($breakpoint-min, $rem-default)) and (max-width: scss-function-rem.rem($breakpoint-max, $rem-default)) {
+    @media (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
       @content;
     }
   }
