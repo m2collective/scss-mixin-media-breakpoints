@@ -18,11 +18,13 @@ npm i @m2collective/scss-mixin-media-breakpoints
 
 To use the package, import it into your project:
 
+```scss
+@use "@m2collective/scss-mixin-media-breakpoints" as *;
+```
+
 ### Media Breakpoint Min
 
 ```scss
-@use "@m2collective/scss-mixin-media-breakpoints" as *;
-
 .demo {
     @include media-breakpoint-min(480px) {
         background-color: #000
@@ -49,8 +51,6 @@ or
 ### Media Breakpoint Max
 
 ```scss
-@use "@m2collective/scss-mixin-media-breakpoints" as *;
-
 .demo {
     @include media-breakpoint-max(xxs) {
         background-color: #000
@@ -77,8 +77,6 @@ or
 ### Media Breakpoint Min Max
 
 ```scss
-@use "@m2collective/scss-mixin-media-breakpoints" as *;
-
 .demo {
     @include media-breakpoint-min(xxs, xs) {
         background-color: #000
