@@ -26,7 +26,7 @@ To use the package, import it into your project:
 
 ```scss
 .demo {
-    @include media-breakpoint-min(480px) {
+    @include media-breakpoint-min(xxs) {
         background-color: #000
     };
 }
@@ -39,6 +39,14 @@ or
     };
 }
 
+or
+
+.demo {
+    @include media-breakpoint-min-xxs {
+        background-color: #000
+    };
+}
+
 // Return
 
 @media (width >= 480px){
@@ -47,6 +55,14 @@ or
     }
 }
 ```
+
+* media-breakpoint-min-xxs: 480px
+* media-breakpoint-min-xs: 640px
+* media-breakpoint-min-sm: 768px
+* media-breakpoint-min-md: 1024px
+* media-breakpoint-min-lg: 1280px
+* media-breakpoint-min-xl: 1440px
+* media-breakpoint-min-xxl: 1536px
 
 ### Media Breakpoint Max
 
@@ -65,6 +81,14 @@ or
     };
 }
 
+or
+
+.demo {
+    @include media-breakpoint-max-xxs {
+        background-color: #000
+    };
+}
+
 // Return
 
 @media (width <= 479px) {
@@ -73,6 +97,14 @@ or
     }
 }
 ```
+
+* media-breakpoint-max-xxs: 479px
+* media-breakpoint-max-xs: 639px
+* media-breakpoint-max-sm: 767px
+* media-breakpoint-max-md: 1023px
+* media-breakpoint-max-lg: 1279px
+* media-breakpoint-max-xl: 1439px
+* media-breakpoint-max-xxl: 1535px
 
 ### Media Breakpoint Min Max
 
