@@ -1,13 +1,14 @@
 {
   "name": "@m2collective/scss-mixin-media-breakpoints",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A package for integrating a mixin for creating media queries",
   "keywords": [
     "m2collective",
     "scss",
     "mixin",
     "media-breakpoints",
-    "style"
+    "style",
+    "front-end"
   ],
   "main": "index.scss",
   "exports": {

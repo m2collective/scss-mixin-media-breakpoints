@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:map";
 
 $breakpoint-xxs: 480px !default;
@@ -21,33 +22,126 @@ $breakpoints: (
 @mixin media-breakpoint-min(
   $breakpoint-min
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-min)) {
+  @if (map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
+
+  @if (math.is-unitless($breakpoint-min)) {
+    $breakpoint-min: $breakpoint-min * 1px;
   }
 
   @if ($breakpoint-min == 0) {
     @content;
   } @else {
-    @media (min-width: $breakpoint-min) {
+    @media screen and (min-width: $breakpoint-min) {
       @content;
     }
+  }
+}
+
+@mixin media-breakpoint-min-xxs {
+  @include media-breakpoint-min(xxs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xs {
+  @include media-breakpoint-min(xs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-sm {
+  @include media-breakpoint-min(sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-md {
+  @include media-breakpoint-min(md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-lg {
+  @include media-breakpoint-min(lg) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xl {
+  @include media-breakpoint-min(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xxl {
+  @include media-breakpoint-min(xxl) {
+    @content;
   }
 }
 
 @mixin media-breakpoint-max(
   $breakpoint-max
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-max)) {
-    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  @if (map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max);
   }
+
+  @if (math.is-unitless($breakpoint-max)) {
+    $breakpoint-max: $breakpoint-max * 1px;
+  }
+
+  $breakpoint-max: $breakpoint-max - 1px;
 
   @if ($breakpoint-max == 0) {
     @content;
-  }
-  @else {
-    @media (max-width: $breakpoint-max) {
+  } @else {
+    @media screen and (max-width: $breakpoint-max) {
       @content;
     }
+  }
+}
+
+@mixin media-breakpoint-max-xxs {
+  @include media-breakpoint-max(xxs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xs {
+  @include media-breakpoint-max(xs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-sm {
+  @include media-breakpoint-max(sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-md {
+  @include media-breakpoint-max(md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-lg {
+  @include media-breakpoint-max(lg) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xl {
+  @include media-breakpoint-max(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xxl {
+  @include media-breakpoint-max(xxl) {
+    @content;
   }
 }
 
@@ -55,20 +149,30 @@ $breakpoints: (
   $breakpoint-min,
   $breakpoint-max
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-min)) {
+  @if (map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
   }
 
-  @if(map.has-key($breakpoints, $breakpoint-max)) {
-    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  @if (map.has-key($breakpoints, $breakpoint-max)) {
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max);
   }
 
+  @if (math.is-unitless($breakpoint-min)) {
+    $breakpoint-min: $breakpoint-min * 1px;
+  }
+
+  @if (math.is-unitless($breakpoint-max)) {
+    $breakpoint-max: $breakpoint-max * 1px;
+  }
+
+  $breakpoint-max: $breakpoint-max - 1px;
+
   @if ($breakpoint-min == 0) {
-    @media (max-width: $breakpoint-max) {
+    @media screen and (max-width: $breakpoint-max) {
       @content;
     }
   } @else {
-    @media (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+    @media screen and (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
       @content;
     }
   }

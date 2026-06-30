@@ -26,27 +26,49 @@ To use the package, import it into your project:
 
 ```scss
 .demo {
-    @include media-breakpoint-min(480px) {
+    @include media-breakpoint-min(xxs) {
         background-color: #000
     };
 }
+```
 
 or
 
+```scss
+.demo {
+    @include media-breakpoint-min-xxs {
+        background-color: #000
+    };
+}
+```
+
+or a custom breakpoint
+
+```scss
 .demo {
     @include media-breakpoint-min(480px) {
         background-color: #000
     };
 }
+```
 
-// Return
+result
 
+```scss
 @media (width >= 480px){
     .demo {
         background-color: #000
     }
 }
 ```
+
+* media-breakpoint-min-xxs: 480px
+* media-breakpoint-min-xs: 640px
+* media-breakpoint-min-sm: 768px
+* media-breakpoint-min-md: 1024px
+* media-breakpoint-min-lg: 1280px
+* media-breakpoint-min-xl: 1440px
+* media-breakpoint-min-xxl: 1536px
 
 ### Media Breakpoint Max
 
@@ -56,17 +78,31 @@ or
         background-color: #000
     };
 }
+```
 
 or
 
+```scss
+.demo {
+    @include media-breakpoint-max-xxs {
+        background-color: #000
+    };
+}
+```
+
+or a custom breakpoint
+
+```scss
 .demo {
     @include media-breakpoint-max(480px) {
         background-color: #000
     };
 }
+```
 
-// Return
+result
 
+```scss
 @media (width <= 479px) {
     .demo {
         background-color: #000;
@@ -74,25 +110,37 @@ or
 }
 ```
 
+* media-breakpoint-max-xxs: 479px
+* media-breakpoint-max-xs: 639px
+* media-breakpoint-max-sm: 767px
+* media-breakpoint-max-md: 1023px
+* media-breakpoint-max-lg: 1279px
+* media-breakpoint-max-xl: 1439px
+* media-breakpoint-max-xxl: 1535px
+
 ### Media Breakpoint Min Max
 
 ```scss
 .demo {
-    @include media-breakpoint-min(xxs, xs) {
+    @include media-breakpoint-min-max(xxs, xs) {
         background-color: #000
     };
 }
+```
 
-or
+or a custom breakpoints
 
+```scss
 .demo {
-    @include media-breakpoint-min(480px, 640px) {
+    @include media-breakpoint-min-max(480px, 640px) {
         background-color: #000
     };
 }
+```
 
-// Return
+result
 
+```scss
 @media (width >= 480px) and (width <= 639px) {
     .demo {
         background-color: #000
