@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "sass:map";
 
 $breakpoint-xxs: 480px !default;
@@ -21,14 +22,18 @@ $breakpoints: (
 @mixin media-breakpoint-min(
   $breakpoint-min
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-min)) {
+  @if (map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
+  }
+
+  @if (math.is-unitless($breakpoint-min)) {
+    $breakpoint-min: $breakpoint-min * 1px;
   }
 
   @if ($breakpoint-min == 0) {
     @content;
   } @else {
-    @media (min-width: $breakpoint-min) {
+    @media screen and (min-width: $breakpoint-min) {
       @content;
     }
   }
@@ -37,15 +42,19 @@ $breakpoints: (
 @mixin media-breakpoint-max(
   $breakpoint-max
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-max)) {
+  @if (map.has-key($breakpoints, $breakpoint-max)) {
     $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+  }
+
+  @if (math.is-unitless($breakpoint-max)) {
+    $breakpoint-max: $breakpoint-max * 1px;
   }
 
   @if ($breakpoint-max == 0) {
     @content;
   }
   @else {
-    @media (max-width: $breakpoint-max) {
+    @media screen and (max-width: $breakpoint-max) {
       @content;
     }
   }
@@ -55,20 +64,28 @@ $breakpoints: (
   $breakpoint-min,
   $breakpoint-max
 ) {
-  @if(map.has-key($breakpoints, $breakpoint-min)) {
+  @if (map.has-key($breakpoints, $breakpoint-min)) {
     $breakpoint-min: map.get($breakpoints, $breakpoint-min);
   }
 
-  @if(map.has-key($breakpoints, $breakpoint-max)) {
+  @if (map.has-key($breakpoints, $breakpoint-max)) {
     $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
   }
 
+  @if (math.is-unitless($breakpoint-min)) {
+    $breakpoint-min: $breakpoint-min * 1px;
+  }
+
+  @if (math.is-unitless($breakpoint-max)) {
+    $breakpoint-max: $breakpoint-max * 1px;
+  }
+
   @if ($breakpoint-min == 0) {
-    @media (max-width: $breakpoint-max) {
+    @media screen and (max-width: $breakpoint-max) {
       @content;
     }
   } @else {
-    @media (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
+    @media screen and (min-width: $breakpoint-min) and (max-width: $breakpoint-max) {
       @content;
     }
   }
