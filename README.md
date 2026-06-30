@@ -30,25 +30,31 @@ To use the package, import it into your project:
         background-color: #000
     };
 }
+```
 
 or
 
-.demo {
-    @include media-breakpoint-min(480px) {
-        background-color: #000
-    };
-}
-
-or
-
+```scss
 .demo {
     @include media-breakpoint-min-xxs {
         background-color: #000
     };
 }
+```
 
-// Return
+or a custom breakpoint
 
+```scss
+.demo {
+    @include media-breakpoint-min(480px) {
+        background-color: #000
+    };
+}
+```
+
+result
+
+```scss
 @media (width >= 480px){
     .demo {
         background-color: #000
@@ -72,25 +78,31 @@ or
         background-color: #000
     };
 }
+```
 
 or
 
-.demo {
-    @include media-breakpoint-max(480px) {
-        background-color: #000
-    };
-}
-
-or
-
+```scss
 .demo {
     @include media-breakpoint-max-xxs {
         background-color: #000
     };
 }
+```
 
-// Return
+or a custom breakpoint
 
+```scss
+.demo {
+    @include media-breakpoint-max(480px) {
+        background-color: #000
+    };
+}
+```
+
+result
+
+```scss
 @media (width <= 479px) {
     .demo {
         background-color: #000;
@@ -114,17 +126,21 @@ or
         background-color: #000
     };
 }
+```
 
-or
+or a custom breakpoints
 
+```scss
 .demo {
     @include media-breakpoint-min-max(480px, 640px) {
         background-color: #000
     };
 }
+```
 
-// Return
+result
 
+```scss
 @media (width >= 480px) and (width <= 639px) {
     .demo {
         background-color: #000
