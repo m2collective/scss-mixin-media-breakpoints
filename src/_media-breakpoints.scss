@@ -43,17 +43,18 @@ $breakpoints: (
   $breakpoint-max
 ) {
   @if (map.has-key($breakpoints, $breakpoint-max)) {
-    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max);
   }
 
   @if (math.is-unitless($breakpoint-max)) {
     $breakpoint-max: $breakpoint-max * 1px;
   }
 
+  $breakpoint-max: $breakpoint-max - 1px;
+
   @if ($breakpoint-max == 0) {
     @content;
-  }
-  @else {
+  } @else {
     @media screen and (max-width: $breakpoint-max) {
       @content;
     }
@@ -69,7 +70,7 @@ $breakpoints: (
   }
 
   @if (map.has-key($breakpoints, $breakpoint-max)) {
-    $breakpoint-max: map.get($breakpoints, $breakpoint-max) - 1px;
+    $breakpoint-max: map.get($breakpoints, $breakpoint-max);
   }
 
   @if (math.is-unitless($breakpoint-min)) {
@@ -79,6 +80,8 @@ $breakpoints: (
   @if (math.is-unitless($breakpoint-max)) {
     $breakpoint-max: $breakpoint-max * 1px;
   }
+
+  $breakpoint-max: $breakpoint-max - 1px;
 
   @if ($breakpoint-min == 0) {
     @media screen and (max-width: $breakpoint-max) {
