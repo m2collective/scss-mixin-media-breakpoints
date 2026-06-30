@@ -39,6 +39,48 @@ $breakpoints: (
   }
 }
 
+@mixin media-breakpoint-min-xxs {
+  @include media-breakpoint-min(xxs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xs {
+  @include media-breakpoint-min(xs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-sm {
+  @include media-breakpoint-min(sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-md {
+  @include media-breakpoint-min(md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-lg {
+  @include media-breakpoint-min(lg) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xl {
+  @include media-breakpoint-min(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-min-xxl {
+  @include media-breakpoint-min(xxl) {
+    @content;
+  }
+}
+
 @mixin media-breakpoint-max(
   $breakpoint-max
 ) {
@@ -58,6 +100,48 @@ $breakpoints: (
     @media screen and (max-width: $breakpoint-max) {
       @content;
     }
+  }
+}
+
+@mixin media-breakpoint-max-xxs {
+  @include media-breakpoint-max(xxs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xs {
+  @include media-breakpoint-max(xs) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-sm {
+  @include media-breakpoint-max(sm) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-md {
+  @include media-breakpoint-max(md) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-lg {
+  @include media-breakpoint-max(lg) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xl {
+  @include media-breakpoint-max(xl) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-max-xxl {
+  @include media-breakpoint-max(xxl) {
+    @content;
   }
 }
 
