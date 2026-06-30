@@ -78,7 +78,7 @@ or
 
 ```scss
 .demo {
-    @include media-breakpoint-min(xxs, xs) {
+    @include media-breakpoint-min-max(xxs, xs) {
         background-color: #000
     };
 }
@@ -86,7 +86,7 @@ or
 or
 
 .demo {
-    @include media-breakpoint-min(480px, 640px) {
+    @include media-breakpoint-min-max(480px, 640px) {
         background-color: #000
     };
 }
